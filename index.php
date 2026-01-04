@@ -1,3 +1,7 @@
+<?php 
+include "config/koneksi.php";
+$sql = mysqli_query($koneksi, "SELECT * FROM layanan");
+?>
 <!DOCTYPE html>
 <html lang="id">
 

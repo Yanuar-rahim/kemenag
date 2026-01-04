@@ -81,111 +81,114 @@ $pengajuan = mysqli_query($koneksi, "
 
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <title>Admin | Kelola Layanan</title>
     <link rel="stylesheet" href="../assets/css/index.css">
     <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
+
 <body>
 
-<div class="dashboard">
-    <?php include "../includes/sidebar.php"; ?>
+    <div class="dashboard">
+        <?php include "../includes/sidebar.php"; ?>
 
-    <div class="content">
+        <div class="content">
 
-        <!-- ================= FORM LAYANAN ================= -->
-        <h2><?= $edit ? 'Edit' : 'Tambah' ?> Layanan</h2>
+            <!-- ================= FORM LAYANAN ================= -->
+            <h2 style="margin: 10px 0;"><?= $edit ? 'Edit' : 'Tambah' ?> Layanan</h2>
 
-        <form method="post" class="form-input">
-            <input type="hidden" name="id" value="<?= $edit['id'] ?? '' ?>">
+            <form method="post" class="form-input">
+                <input type="hidden" name="id" value="<?= $edit['id'] ?? '' ?>">
 
-            <input type="text" name="nama_layanan" placeholder="Nama Layanan"
-                   value="<?= $edit['nama_layanan'] ?? '' ?>" required>
+                <input type="text" name="nama_layanan" placeholder="Nama Layanan"
+                    value="<?= $edit['nama_layanan'] ?? '' ?>" required>
 
-            <textarea name="deskripsi" placeholder="Deskripsi Layanan"><?= $edit['deskripsi'] ?? '' ?></textarea>
+                <textarea name="deskripsi" placeholder="Deskripsi Layanan"><?= $edit['deskripsi'] ?? '' ?></textarea>
 
-            <select name="status">
-                <option value="Aktif" <?= ($edit && $edit['status']=='Aktif')?'selected':'' ?>>Aktif</option>
-                <option value="Nonaktif" <?= ($edit && $edit['status']=='Nonaktif')?'selected':'' ?>>Nonaktif</option>
-            </select>
+                <select name="status">
+                    <option value="Aktif" <?= ($edit && $edit['status'] == 'Aktif') ? 'selected' : '' ?>>Aktif</option>
+                    <option value="Nonaktif" <?= ($edit && $edit['status'] == 'Nonaktif') ? 'selected' : '' ?>>Nonaktif</option>
+                </select>
 
-            <button type="submit" name="simpan">Simpan</button>
-        </form>
+                <button type="submit" name="simpan">Simpan</button>
+            </form>
 
-        <!-- ================= DAFTAR LAYANAN ================= -->
-         <div class="header-tabel">
-             <h2>Daftar Layanan</h2>
-     
-             <form method="get">
-                 <input type="text" name="cari_layanan" placeholder="Cari layanan..."
+            <!-- ================= DAFTAR LAYANAN ================= -->
+            <h2 style="margin-top: 20px;">Daftar Layanan</h2>
+            <div class="header-tabel">
+                <form method="get">
+                    <input type="text" name="cari_layanan" placeholder="Cari layanan..."
                         value="<?= $cari_layanan ?>">
-                 <button type="submit" class="button">Cari</button>
-                 <button onclick="window.history.back();" class="button">Reset</button>
-             </form>
-         </div>
+                    <button type="submit" class="button">Cari</button>
+                </form>
+                <button onclick="window.history.back();" class="button">Reset</button>
+            </div>
 
-        <table>
-            <tr>
-                <th>No</th>
-                <th>Nama Layanan</th>
-                <th>Deskripsi</th>
-                <th>Status</th>
-                <th>Aksi</th>
-            </tr>
-            <?php $no=1; while($l=mysqli_fetch_assoc($layanan)): ?>
-            <tr>
-                <td><?= $no++ ?></td>
-                <td><?= $l['nama_layanan'] ?></td>
-                <td><?= $l['deskripsi'] ?></td>
-                <td style="text-align: center;"><?= $l['status'] ?></td>
-                <td style="text-align: center;">
-                    <a href="?edit=<?= $l['id'] ?>">Edit</a> |
-                    <a href="?hapus=<?= $l['id'] ?>" onclick="return confirm('Hapus layanan?')">Hapus</a>
-                </td>
-            </tr>
-            <?php endwhile; ?>
-        </table>
+            <table>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Layanan</th>
+                    <th>Deskripsi</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+                <?php $no = 1;
+                while ($l = mysqli_fetch_assoc($layanan)): ?>
+                    <tr>
+                        <td><?= $no++ ?></td>
+                        <td><?= $l['nama_layanan'] ?></td>
+                        <td><?= $l['deskripsi'] ?></td>
+                        <td style="text-align: center;"><?= $l['status'] ?></td>
+                        <td style="text-align: center;">
+                            <a href="?edit=<?= $l['id'] ?>">Edit</a> |
+                            <a href="?hapus=<?= $l['id'] ?>" onclick="return confirm('Hapus layanan?')">Hapus</a>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            </table>
 
-        <!-- ================= PENGAJUAN ================= -->
-         <div class="header-tabel">
-             <h2>Pengajuan Layanan</h2>
-     
-             <form method="get">
-                 <input type="text" name="cari_pengajuan" placeholder="Cari pengajuan..."
+            <!-- ================= PENGAJUAN ================= -->
+            <h2 style="margin-top: 20px;">Pengajuan Layanan</h2>
+            <div class="header-tabel">
+                <form method="get">
+                    <input type="text" name="cari_pengajuan" placeholder="Cari pengajuan..."
                         value="<?= $cari_pengajuan ?>">
-                 <button type="submit" class="button">Cari</button>
-                 <a href="cetak_pengajuan.php?cari=<?= $cari_pengajuan ?>" target="_blank">
-                     <button type="button" class="button">Cetak PDF</button>
+                    <button type="submit" class="button">Cari</button>
+                </form>
+                <a href="cetak_pengajuan.php?cari=<?= $cari_pengajuan ?>" target="_blank">
+                    <button type="button" class="button">Cetak PDF</button>
                 </a>
-             </form>
-         </div>
+            </div>
 
-        <table style="margin-bottom: 30px;">
-            <tr>
-                <th>No</th>
-                <th>Nama</th>
-                <th>Layanan</th>
-                <th>Tanggal</th>
-                <th>Status</th>
-                <th>Aksi</th>
-            </tr>
-            <?php $no=1; while($p=mysqli_fetch_assoc($pengajuan)): ?>
-            <tr>
-                <td><?= $no++ ?></td>
-                <td><?= $p['nama'] ?></td>
-                <td><?= $p['nama_layanan'] ?></td>
-                <td style="text-align: center;"><?= $p['tanggal_pengajuan'] ?></td>
-                <td style="text-align: center;"><?= $p['status'] ?></td>
-                <td style="text-align: center;">
-                    <a href="detail_pengajuan.php?id=<?= $p['id'] ?>">Detail</a>
-                </td>
-            </tr>
-            <?php endwhile; ?>
-        </table>
+            <table style="margin-bottom: 30px;">
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Layanan</th>
+                    <th>Tanggal</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+                <?php $no = 1;
+                while ($p = mysqli_fetch_assoc($pengajuan)): ?>
+                    <tr>
+                        <td><?= $no++ ?></td>
+                        <td><?= $p['nama'] ?></td>
+                        <td><?= $p['nama_layanan'] ?></td>
+                        <td style="text-align: center;"><?= $p['tanggal_pengajuan'] ?></td>
+                        <td style="text-align: center;"><?= $p['status'] ?></td>
+                        <td style="text-align: center;">
+                            <a href="detail_pengajuan.php?id=<?= $p['id'] ?>">Detail</a>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            </table>
 
+        </div>
     </div>
-</div>
 
 </body>
+
 </html>

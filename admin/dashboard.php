@@ -18,6 +18,15 @@ $layanan = mysqli_query($koneksi, "
 
 $user = mysqli_query($koneksi,"SELECT * FROM users WHERE role = 'user'");
 $total_user = mysqli_num_rows($user);
+
+$lyn = mysqli_query($koneksi,"SELECT * FROM layanan WHERE status ='Aktif'");
+$total_layanan = mysqli_num_rows($lyn);
+
+$pengajuan = mysqli_query($koneksi,"SELECT * FROM pengajuan_layanan");
+$total_pengajuan = mysqli_num_rows($pengajuan);
+
+$berita = mysqli_query($koneksi,"SELECT * FROM berita");
+$total_berita = mysqli_num_rows($berita);
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +62,7 @@ $total_user = mysqli_num_rows($user);
             </div>
             <div class="stat-card">
                 <h4>Berita & Pengumuman</h4>
-                <p><?= $total_pengumuman; ?></p>
+                <p><?= $total_berita; ?></p>
             </div>
             <div class="stat-card">
                 <h4>Layanan Aktif</h4>
@@ -65,15 +74,14 @@ $total_user = mysqli_num_rows($user);
             </div>
         </div>
 
+        <h2 style="margin-top: 20px; text-align: left;">Daftar Layanan</h2>
         <div class="header-tabel">
-             <h2>Daftar Layanan</h2>
-     
              <form method="get">
                  <input type="text" name="cari_layanan" placeholder="Cari layanan..."
                         value="<?= $cari_layanan ?>">
                  <button type="submit" class="button">Cari</button>
-                 <button onclick="window.history.back();" class="button">Reset</button>
-             </form>
+                </form>
+                <button onclick="window.history.back();" class="button">Reset</button>
          </div>
 
         <table style="margin-bottom: 20px;">
