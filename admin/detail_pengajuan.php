@@ -81,9 +81,9 @@ if (isset($_POST['verifikasi'])) {
                     <option value="Ditolak">Ditolak</option>
                 </select>
 
-                <button type="submit" name="verifikasi">Simpan Keputusan</button>
+                <button type="submit" name="verifikasi" class="button">Simpan Keputusan</button>
+                <button onclick="window.history.back();" class="kembali">Kembali</button>
             </form>
-            <button onclick="window.history.back();" class="kembali">Kembali</button>
         </div>
 
     </div>
