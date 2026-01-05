@@ -59,15 +59,7 @@ if (isset($_POST['login'])) {
 
 <body>
 
-    <header>
-        <div class="navbar">
-            <h1>Kemenag Baubau</h1>
-            <ul>
-                <li><a href="index.php">Beranda</a></li>
-                <li><a href="register.php">Registrasi</a></li>
-            </ul>
-        </div>
-    </header>
+    <?php include "includes/header_index.php"; ?>
 
     <div class="container" style="margin-top:100px;">
         <div class="card" style="max-width:420px;margin:auto;">

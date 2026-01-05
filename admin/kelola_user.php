@@ -4,7 +4,7 @@ include "../config/koneksi.php";
 
 // Proteksi admin
 if (!isset($_SESSION['login']) || $_SESSION['role'] !== 'admin') {
-    header("Location: ../login.php");
+    header("Location: ../index.php");
     exit;
 }
 
@@ -47,8 +47,8 @@ $total_user = mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM users WHERE r
             <form method="get">
                 <input type="text" name="cari_user" placeholder="Cari user..." value="<?= htmlspecialchars($cari_user) ?>">
                 <button type="submit" class="button">Cari</button>
-                <button type="button" onclick="window.location.href='kelola-user.php';" class="button">Reset</button>
             </form>
+            <button type="button" onclick="window.location.href='kelola_user.php';" class="button">Reset</button>
         </div>
 
         <table style="width:100%; margin-bottom:20px;">

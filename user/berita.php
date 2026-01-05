@@ -2,6 +2,11 @@
 session_start();
 include "../config/koneksi.php";
 
+if (!isset($_SESSION['login']) || $_SESSION['role'] !== 'user') {
+    header("Location: ../index.php");
+    exit;
+}
+
 // Ambil data berita
 $cari_berita = $_GET['cari_berita'] ?? '';
 $berita = mysqli_query($koneksi, "

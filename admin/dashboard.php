@@ -81,7 +81,7 @@ $total_berita = mysqli_num_rows($berita);
                         value="<?= $cari_layanan ?>">
                  <button type="submit" class="button">Cari</button>
                 </form>
-                <button onclick="window.history.back();" class="button">Reset</button>
+                <button onclick="window.location.href='dashboard.php';" class="button">Reset</button>
          </div>
 
         <table style="margin-bottom: 20px;">

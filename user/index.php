@@ -4,7 +4,7 @@ include "../config/koneksi.php";
 
 // Proteksi user
 if (!isset($_SESSION['login']) || $_SESSION['role'] !== 'user') {
-    header("Location: ../login.php");
+    header("Location: ../index.php");
     exit;
 }
 

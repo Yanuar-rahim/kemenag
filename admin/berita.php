@@ -4,7 +4,7 @@ include "../config/koneksi.php";
 
 // Proteksi admin
 if (!isset($_SESSION['login']) || $_SESSION['role'] !== 'admin') {
-    header("Location: ../login.php");
+    header("Location: ../index.php");
     exit;
 }
 
@@ -128,8 +128,8 @@ if (isset($_GET['edit'])) {
         <hr>
 
         <!-- Cari Berita -->
+        <h2 style="margin-top: 20px; text-align: left;">Daftar Berita</h2>
         <div class="header-tabel">
-            <h2>Daftar Berita</h2>
             <form method="get">
                 <input type="text" name="cari_berita" placeholder="Cari berita..."
                        value="<?= $cari_berita ?>">

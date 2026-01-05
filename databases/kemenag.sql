@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2026 at 03:26 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Waktu pembuatan: 05 Jan 2026 pada 08.33
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `berita`
+-- Struktur dari tabel `berita`
 --
 
 CREATE TABLE `berita` (
@@ -36,7 +36,7 @@ CREATE TABLE `berita` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `berita`
+-- Dumping data untuk tabel `berita`
 --
 
 INSERT INTO `berita` (`id`, `judul`, `konten`, `tanggal`, `gambar`) VALUES
@@ -52,7 +52,7 @@ INSERT INTO `berita` (`id`, `judul`, `konten`, `tanggal`, `gambar`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `layanan`
+-- Struktur dari tabel `layanan`
 --
 
 CREATE TABLE `layanan` (
@@ -65,7 +65,7 @@ CREATE TABLE `layanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `layanan`
+-- Dumping data untuk tabel `layanan`
 --
 
 INSERT INTO `layanan` (`id`, `nama_layanan`, `deskripsi`, `gambar`, `status`, `created_at`) VALUES
@@ -77,7 +77,7 @@ INSERT INTO `layanan` (`id`, `nama_layanan`, `deskripsi`, `gambar`, `status`, `c
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengajuan_layanan`
+-- Struktur dari tabel `pengajuan_layanan`
 --
 
 CREATE TABLE `pengajuan_layanan` (
@@ -95,18 +95,16 @@ CREATE TABLE `pengajuan_layanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `pengajuan_layanan`
+-- Dumping data untuk tabel `pengajuan_layanan`
 --
 
 INSERT INTO `pengajuan_layanan` (`id`, `nama`, `email`, `nik`, `alamat`, `no_hp`, `nama_layanan`, `keterangan`, `tanggal_pengajuan`, `status`, `created_at`) VALUES
-(2, 'La Ode Yanuar Rahim', 'yanuarrahim@gmail.com', '7472050901050002', 'Jalan Sarikaya', '082331096562', 'Layanan Nikah', 'juakka', '2026-01-04', 'Menunggu', '2026-01-04 13:40:52'),
-(3, 'La Ode Yanuar Rahim', 'yanuarrahim@gmail.com', '7472050901050002', 'Jalan Sarikaya', '082331096562', 'Layanan Pendidikan', 'afafa', '2026-01-04', 'Menunggu', '2026-01-04 13:41:28'),
-(4, 'La Ode Yanuar Rahim', 'yanuarrahim@gmail.com', '7472050901050002', 'Jalan Sarikaya', '082331096562', 'Layanan Keagamaan', 'arafaf', '2026-01-04', 'Selesai', '2026-01-04 13:41:32');
+(5, 'Sevia Suci Damayanti', 'sevi@gmail.com', '747829920029', 'Betoambari', '0876534243666', 'Layanan Nikah', 'Test', '2026-01-05', 'Selesai', '2026-01-05 03:52:53');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -122,69 +120,69 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `nama`, `email`, `username`, `password`, `role`, `nik`, `alamat`, `no_hp`) VALUES
-(2, 'La Ode Yanuar Rahim', 'yanuarrahim@gmail.com', 'yanuar', '$2y$10$SO7PcMFLZQ79LnwvwUDxcu8MVEFo/4tWH6qNvcLhxZhxZDZ9zHKn2', 'user', '7472050901050002', 'Jalan Sarikaya', '082331096562'),
-(3, 'La Ode Yanuar Rahim', 'yanuarrahim519@gmail.com', 'admin', '$2y$10$7ohg6fiXpu8OFqM4AdZrcueToOze7yzTM.uz8YRecvBMji3n8U0cK', 'admin', NULL, NULL, NULL);
+(3, 'Sevia Suci Damayanti', 'admin@gmail.com', 'admin', '$2y$10$7ohg6fiXpu8OFqM4AdZrcueToOze7yzTM.uz8YRecvBMji3n8U0cK', 'admin', NULL, NULL, NULL),
+(4, 'Sevia Suci Damayanti', 'sevi@gmail.com', 'sevi-suci', '$2y$10$v8sfXI5AQPkAQAc5eAQMgecO.qL2EmE5pKZyuPWfwxUW6v8P8l73K', 'user', '747829920029', 'Betoambari', '0876534243666');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `berita`
+-- Indeks untuk tabel `berita`
 --
 ALTER TABLE `berita`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `layanan`
+-- Indeks untuk tabel `layanan`
 --
 ALTER TABLE `layanan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pengajuan_layanan`
+-- Indeks untuk tabel `pengajuan_layanan`
 --
 ALTER TABLE `pengajuan_layanan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `berita`
+-- AUTO_INCREMENT untuk tabel `berita`
 --
 ALTER TABLE `berita`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `layanan`
+-- AUTO_INCREMENT untuk tabel `layanan`
 --
 ALTER TABLE `layanan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `pengajuan_layanan`
+-- AUTO_INCREMENT untuk tabel `pengajuan_layanan`
 --
 ALTER TABLE `pengajuan_layanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

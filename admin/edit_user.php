@@ -4,7 +4,7 @@ include "../config/koneksi.php";
 
 // Proteksi admin
 if (!isset($_SESSION['login']) || $_SESSION['role'] !== 'admin') {
-    header("Location: ../login.php");
+    header("Location: ../index.php");
     exit;
 }
 

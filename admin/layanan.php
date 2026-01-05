@@ -3,7 +3,7 @@ session_start();
 include "../config/koneksi.php";
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
-    header("Location: ../login.php");
+    header("Location: ../index.php");
     exit;
 }
 
@@ -123,7 +123,7 @@ $pengajuan = mysqli_query($koneksi, "
                         value="<?= $cari_layanan ?>">
                     <button type="submit" class="button">Cari</button>
                 </form>
-                <button onclick="window.history.back();" class="button">Reset</button>
+                <button onclick="window.location.href='layanan.php';" class="button">Reset</button>
             </div>
 
             <table>
