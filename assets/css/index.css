@@ -140,6 +140,12 @@ h2 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.info h3 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #0a5c36;
+}
+
 .form-input {
   display: flex;
   flex-direction: column;
